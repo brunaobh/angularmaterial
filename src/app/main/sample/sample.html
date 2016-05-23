@@ -1,0 +1,237 @@
+
+<div id="forms" class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div class="md-title mt-32" translate="{{vm.translation}}">{{vm.title}}</div>
+        <div class="pb-16" translate="{{vm.translation}}">
+            {{vm.hello}}
+        </div>
+        <div layout="row">
+
+            <!-- FORM WIZARD -->
+            <ms-form-wizard flex>
+                <md-tabs md-dynamic-height md-selected="msWizard.selectedIndex" md-center-tabs="true" ng-show="!vm.sent">
+                    <md-tab>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep1.$invalid">1</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep1.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text" translate="{{vm.translation}}">{{vm.questions.personal_info.title}}</span>
+                            </span>
+                        </md-tab-label>
+
+                        <md-tab-body>
+                            <form name="wizardStep1" class="md-inline-form" ms-form-wizard-form novalidate>
+                                <div layout="column" layout-gt-xs="row" flex ng-controller="MoviesController as movie" >
+                                    <md-autocomplete flex-offset="5" flex="100" flex-gt-xs="50" required
+                                    ng-required="true" 
+                                    md-input-name="movie"
+                                    md-no-cache="movie.noCache" 
+                                    md-selected-item="vm.formData.movie" 
+                                    md-search-text="vm.formData.favoriteMovie" 
+                                    md-items="item in movie.querySearch(vm.formData.favoriteMovie)" 
+                                    md-item-text="item.display" 
+                                    md-floating-label="{{vm.questions.personal_info.a | translate}}">
+                                      <md-item-template>
+                                        <span md-highlight-text="vm.formData.favoriteMovie">{{item.display}}</span>
+                                      </md-item-template>
+                                      <div ng-messages="wizardStep1.movie.$error" ng-if="wizardStep1.movie.$touched || vm.formData.movie === null">
+                                        <div ng-message="required" translate="{{vm.translation}}">{{vm.validation.requiredmovie}}</div>
+                                      </div>
+                                    </md-autocomplete>
+
+                                    <md-input-container flex-offset="5" flex="100" flex-gt-xs="50">
+                                        <label translate="{{vm.translation}}">{{vm.questions.personal_info.b}}</label>
+                                        <input type="text" name="series" ng-model="vm.formData.series"
+                                               required>
+                                        <div ng-messages="wizardStep1.series.$error" role="alert">
+                                            <div ng-message="required">
+                                                <span translate="{{vm.translation}}">{{vm.validation.empty}}</span>
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+
+
+                                <div layout="column" layout-gt-xs="row" flex>
+                                    <md-input-container flex-offset="5" flex="100" flex-gt-xs="50">
+                                        <label translate="{{vm.translation}}">{{vm.questions.personal_info.c}}</label>
+                                        <md-select ng-model="vm.formData.bolacha" required>
+                                          <md-option ng-repeat="item in vm.biscoito" value="{{item.desc}}">
+                                            {{item.desc}}
+                                          </md-option>
+                                        </md-select>
+                                        <div ng-messages="wizardStep1.bolacha.$error"
+                                             role="alert">
+                                            <div ng-message="required">
+                                                <span translate="{{vm.translation}}">{{vm.validation.empty}}</span>
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container flex-offset="5" flex="100" flex-gt-xs="50">
+                                        <label translate="{{vm.translation}}">{{vm.questions.personal_info.d}}</label>
+                                        <textarea ng-model="vm.formData.quote" name="quote" md-maxlength="50" ng-maxlength="50" rows="1" md-select-on-focus required></textarea>
+                                        <div ng-messages="wizardStep1.quote.$error" role="alert">
+                                            <div ng-message="required">
+                                                <span translate="{{vm.translation}}">{{vm.validation.empty}}</span>
+                                            </div>
+                                            <div ng-message="maxlength">
+                                                <span translate="{{vm.translation}}">{{vm.validation.maxlength}}</span>
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab ng-disabled="wizardStep1.$invalid">
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep2.$invalid">2</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep2.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text" translate="{{vm.translation}}">{{vm.questions.food.title}}</span>
+                            </span>
+                        </md-tab-label>
+
+                        <md-tab-body>
+                            <form name="wizardStep2" ms-form-wizard-form novalidate>
+
+                                <p flex-offset="5" translate="{{vm.translation}}">{{vm.questions.food.question}}</p>
+                                <div flex-offset="5" layout="column" layout-wrap layout-gt-sm="row" >
+                                    <div flex-xs flex="25">
+                                        <p>
+                                            <img ng-src="assets/images/food/insect.jpg" class="avatar huge" />
+                                        </p>
+                                        <md-radio-group ng-model="vm.formData.food" ng-required="true">
+                                            <md-radio-button value="insect">{{vm.questions.food.insect | translate}}</md-radio-button>
+                                        </md-radio-group>
+                                    </div>
+                                    <div flex-xs flex="25">
+                                        <p>
+                                            <img ng-src="assets/images/food/pasta.jpg" class="avatar huge" />
+                                        </p>
+                                        <md-radio-group ng-model="vm.formData.food" ng-required="true">
+                                            <md-radio-button value="pasta">{{vm.questions.food.pasta | translate}}</md-radio-button>
+                                        </md-radio-group>
+                                    </div>
+                                    <div flex-xs flex="25">
+                                        <p>
+                                            <img ng-src="assets/images/food/meat.jpg" class="avatar huge" />
+                                        </p>
+                                        <md-radio-group ng-model="vm.formData.food" ng-required="true">
+                                            <md-radio-button value="meat">{{vm.questions.food.meat | translate}}</md-radio-button>
+                                        </md-radio-group>
+                                    </div>
+                                    <div flex-xs flex="25">
+                                        <p>
+                                            <img ng-src="assets/images/food/allin.jpg" class="avatar huge" />
+                                        </p>
+                                        <md-radio-group ng-model="vm.formData.food" ng-required="true">
+                                            <md-radio-button value="allin">{{vm.questions.food.allin | translate}}</md-radio-button>
+                                        </md-radio-group>
+                                    </div>
+                                </div>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid">
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep3.$invalid">3</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep3.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text" translate="{{vm.translation}}">{{vm.review}}</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep3" ms-form-wizard-form novalidate>
+                                
+                                <p flex-offset="5" translate="{{vm.translation}}">{{vm.review}}</p>
+                                <div layout="column" layout-gt-xs="row" flex>
+                                    <md-input-container flex-offset="5" flex="100" flex-gt-xs="50">
+                                        <label translate="{{vm.translation}}">{{vm.questions.personal_info.a}}</label>
+                                        <input type="text" ng-readonly="true" name="movie" value="{{vm.formData.favoriteMovie | uppercase}}">
+                                    </md-input-container>
+
+                                    <md-input-container flex-offset="5" flex="100" flex-gt-xs="50">
+                                        <label translate="{{vm.translation}}">{{vm.questions.personal_info.b}}</label>
+                                        <input type="text" ng-readonly="true" name="series" value="{{vm.formData.series | uppercase}}">
+                                    </md-input-container>
+                                </div>
+
+                                <div layout="column" layout-gt-xs="row" flex>
+                                    <md-input-container flex-offset="5" flex="100" flex-gt-xs="50">
+                                        <label translate="{{vm.translation}}">{{vm.questions.personal_info.c}}</label>
+                                        <input type="text" ng-readonly="true" name="bolacha" value="{{vm.formData.bolacha | uppercase}}">
+                                    </md-input-container>
+
+                                    <md-input-container flex-offset="5" flex="100" flex-gt-xs="50">
+                                        <label translate="{{vm.translation}}">{{vm.questions.personal_info.d}}</label>
+                                        <textarea ng-readonly="true" name="quote" rows="3">{{vm.formData.quote | uppercase}}</textarea>
+                                    </md-input-container>
+                                </div>
+                                <div flex-offset="5" layout-wrap layout="row" layout-fill layout-align="center center">
+                                    <p>
+                                        <img ng-src="assets/images/food/{{vm.formData.food}}.jpg" class="avatar huge" />
+                                    </p>
+                                    <md-radio-group ng-model="review" class="md-default-theme md-checked">
+                                        <md-radio-button>{{vm.questions.food[vm.formData.food] | translate}}</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+                </md-tabs>
+
+                <div ng-show="vm.sent" layout="column" flex-sm="100" flex="100" layout-align="center center">
+                    <p class="h1" translate="{{vm.translation}}" layout-align="center center">{{vm.thanks}}</p>
+                    <p class="h3" translate="{{vm.translation}}">{{vm.wish}}</p>
+                </div>
+
+                <div class="navigation" flex layout="row" layout-align="center center">
+                    <md-button class="md-raised md-accent" ng-click="msWizard.previousStep()"
+                                ng-show="!vm.sent"
+                                ng-disabled="msWizard.isFirstStep()">
+                        Previous
+                    </md-button>
+                    <div class="steps" ng-show="!vm.sent">
+                        <span ng-repeat="form in msWizard.forms"
+                              ng-class="{'selected md-accent-bg':msWizard.selectedIndex === $index}"></span>
+                    </div>
+                    <md-button class="md-raised md-accent" ng-click="msWizard.nextStep()"
+                               ng-hide="msWizard.isLastStep() || vm.sent"
+                               ng-disabled="msWizard.currentStepInvalid()">
+                        Next
+                    </md-button>
+                    <md-button class="md-raised md-accent" ng-click="vm.sent=!vm.sent"
+                               ng-show="msWizard.isLastStep() && !vm.sent"
+                               ng-disabled="msWizard.formsIncomplete()">
+                        Save
+                    </md-button>
+                    <md-button class="md-raised md-accent" ng-click="msWizard.resetForm(); vm.sent=!vm.sent;"
+                               ng-show="vm.sent">
+                        Finish
+                    </md-button>
+                </div>
+
+            </ms-form-wizard>
+            <!-- / FORM WIZARD -->
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+</div>

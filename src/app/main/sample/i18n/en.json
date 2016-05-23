@@ -1,0 +1,36 @@
+{
+    "SAMPLE": {
+    	"TITLE": "Tell us a little about yourself",
+    	"HELLO": "Please fill in all required fields before continuing",
+    	"REVIEW": "REVIEW",
+    	"THANKS": "Thank you for your time.",
+    	"WISH": "It would be great to be part of the CI&T team",
+        "QUESTION": {
+        	"INFO": {
+	        	"TITLE": "Personal Info",
+	        	"START_WARS_MOVIE": "Your favorite star wars movie",
+		        "TV_SERIES": "TV Series that you are currently whatching",
+		        "BOLACHA": "Wich one do you use:",
+		        "BEST_QUOTE": "What is your best quote ever"
+		    },
+        	"FOOD": {
+	        	"TITLE": "Food",
+	        	"QUESTION": "We take too serious to choose our restaurant, everyday. What kind of food do you like?",
+		        "INSECT": "I am an insect.",
+		        "PASTA": "I love pasta.",
+		        "MEAT": "Gimme meat.",
+		        "ALLIN": "Is it food? I am in."
+		    },
+		    "VALIDATION": {
+	    		"EMPTY": "This field is required.",
+	    		"MAXLENGTH": "The text entered exceeds the maximum length.",
+	    		"REQUIREDMOVIE": "You <b>must</b> have a favorite movie."
+		    },
+		    "BUTTONS": {
+	    		"NEXT": "NEXT",
+	    		"PREVIOUS": "PREVIOUS",
+	    		"SAVE": "SAVE"
+		    }
+	    }
+    }
+}

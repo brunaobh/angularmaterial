@@ -1,0 +1,143 @@
+/*----------------------------------------------------------------*/
+/*  Angular Material Extend
+/*  Adds and/or modifies Angular Material styles
+/*----------------------------------------------------------------*/
+
+/* --- FIXES --- */
+
+// IE layout-fill fix
+[layout] {
+
+    > * {
+        min-height: auto;
+        min-height: initial;
+    }
+}
+
+/* --- MODIFICATIONS --- */
+
+// Autocomplete
+md-autocomplete-wrap {
+
+    > input[type="search"] {
+        background: #FFFFFF;
+        padding: 0 15px !important;
+    }
+}
+
+// Backdrop
+md-backdrop {
+
+    &.md-opaque {
+        background-color: rgba(33, 33, 33, 0.48) !important;
+    }
+}
+
+// Input
+md-input-container {
+
+    &.no-errors-spacer {
+
+        .md-errors-spacer {
+            display: none;
+        }
+    }
+}
+
+// Lists
+md-list-item {
+
+    .md-list-item-text {
+
+        p {
+            font-size: 13px !important;
+        }
+    }
+}
+
+// Progress
+md-progress-linear {
+
+    .md-container {
+        top: 0 !important;
+    }
+}
+
+// Select
+md-select {
+
+    &.simplified {
+        margin: 0 8px;
+
+        .md-select-value {
+            border: none !important;
+            box-sizing: border-box;
+            padding: 0;
+
+            & *:first-child {
+                transform: none;
+                height: auto;
+            }
+
+            .md-select-icon {
+                transform: none;
+                font-size: 16px;
+
+                &:after {
+                    top: 1px;
+                }
+            }
+        }
+    }
+}
+
+// Toolbar
+md-toolbar {
+
+    // Colored toolbar element compatibility
+    &.colored-toolbar {
+        color: rgba(255, 255, 255, 0.87);
+
+        md-menu-bar {
+
+            md-menu {
+
+                &.md-open {
+
+                    > button {
+                        background: rgba(0, 0, 0, 0.12);
+                    }
+                }
+
+                .md-open-menu-container {
+                    background: #FFFFFF;
+
+                    md-menu-item {
+
+                        button {
+                            color: rgba(0, 0, 0, 0.87) !important;
+                        }
+
+                        md-icon {
+                            color: rgba(0, 0, 0, 0.54);
+                        }
+                    }
+                }
+            }
+        }
+
+        md-menu {
+
+            &.md-open {
+
+                > button {
+                    background: rgba(0, 0, 0, 0.12);
+                }
+            }
+        }
+
+        input {
+            color: rgba(255, 255, 255, 0.87) !important;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "SAMPLE": {
+    	"TITLE": "Conte-nos um pouco sobre você",
+    	"HELLO": "Por favor preencha todos os campos do formulário antes de continuar",
+    	"REVIEW": "REVISÃO",
+    	"THANKS": "Obrigado por seu tempo.",
+    	"WISH": "Seria ótimo fazer parte da equipe CI&T",
+        "QUESTION": {
+        	"INFO": {
+	        	"TITLE": "Info. Pessoais",
+	        	"START_WARS_MOVIE": "Seu filme preferido dos Star wars",
+		        "TV_SERIES": "Séries de TV que você está assistindo",
+		        "BOLACHA": "Você costuma falar: Bolacha or Biscoito",
+		        "BEST_QUOTE": "Qual é o ditado que você mais gosta"
+		    },
+        	"FOOD": {
+	        	"TITLE": "Comida",
+	        	"QUESTION": "Levamos a sério a escolha do restaurantes que comemos todos os dias. Que tipo de comida você gosta?",
+		        "INSECT": "Eu sou um inseto.",
+		        "PASTA": "Eu amo massas.",
+		        "MEAT": "Prefiro carne.",
+		        "ALLIN": "Falou em comida, to dentro."
+		    },
+		    "VALIDATION": {
+	    		"EMPTY": "O preenchimento desse campo é obrigatório.",
+	    		"MAXLENGTH": "O texto digitado excedeu o número máximo de caracteres.",
+	    		"REQUIREDMOVIE": "Você <b>precisa</b> escolher o seu filme preferido."
+		    },
+		    "BUTTONS": {
+	    		"NEXT": "Próximo",
+	    		"PREVIOUS": "Anterior",
+	    		"SAVE": "Salvar"
+		    }
+	    }
+    }
+}
