@@ -1,14 +1,12 @@
-# angularmaterial
-================
+# Angular Material - Form | Responsive layout
 Autor: Bruno Coelho
-
 About: Angular Material Form Sample
 
 ----------------
 INTRODUCTION
 ----------------
 
-Responsive layout that works browsers (computers and smartphones). Developed using Angular Material, Sass, Gulp and NPM.
+Responsive layout that works for browsers (computers and smartphones). Developed using Angular Material, Sass, Gulp and NPM.
 
 ----------------
 INSTRUCTIONS
